@@ -1,9 +1,9 @@
-browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa
 server-->browser: HTML-code
 browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
 server-->browser: main.css
-browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
-server-->browser: main.js
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa.js
+server-->browser: spa.js
 
 spa.js requests JSON from server
 
@@ -12,10 +12,3 @@ server-->browser: [{ content: "HTML is easy", date: "2019-05-23" }, ...]
 
 spa.js stores the elements in the "notes" global variable
 spa.js tells the browser to draw the JSON elements as <li>
-
-user writes something on the text box and presses the button labeled "Save"
-
-spa.js prevents the redirect by preventing default behaviour
-spa.js stores the value of the textbox and the timestamp
-spa.js redraws the list withe the inclusion of the new message
-spa.js sends the contents of the message, converted to JSON, to the server with a POST request
