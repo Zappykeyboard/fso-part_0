@@ -1,0 +1,8 @@
+
+user writes something on the text box and presses the button labeled "Save"
+
+spa.js prevents the redirect by preventing default behaviour
+spa.js stores the value of the textbox and the timestamp
+spa.js redraws the list withe the inclusion of the new message
+spa.js sends the contents of the message, converted to JSON, to the server with a POST request
+browser->server: POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
