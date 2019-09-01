@@ -1,0 +1,24 @@
+User types something in the text box, then click on the button labeled "Save".
+
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note with the contents of the text box
+
+the server takes in the contents of the request, then triggers a redirect ny responding with a status code 302
+
+server-->browser: {status code: 302}, redirect to https://fullstack-exampleapp.herokuapp.com/note
+
+browser is told by the server to load https://fullstack-exampleapp.herokuapp.com/note
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+server-->browser: main.js
+
+the code in main.js requests the JSON content from the server
+this content includes the new message, added by the user
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+server-->browser: [{ content: "HTML is easy", date: "2019-05-23" }, ...]
+
+the code in main.js appends the JSON response elements to the <ul> element, as <li> elements
